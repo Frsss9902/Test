@@ -59,21 +59,7 @@ export default function Login() {
 							{"Join Ecowards and start earning points"}
 						</Text>
 					</View>
-					<View 
-						style={{
-							alignItems: "center",
-							marginBottom: 21,
-						}}>
-						<Text 
-							style={{
-								color: "#050506",
-								fontSize: 16,
-								fontWeight: "bold",
-								marginBottom: 1,
-							}}>
-							{"Login"}
-						</Text>
-					</View>
+					
 					<Text
 						style={{
 							color: "#000000",
@@ -82,11 +68,23 @@ export default function Login() {
 						}}>
 						{"Username:"}
 					</Text>
+					<View style={{ position: 'relative', marginBottom: 12 }}>
+					<Image
+						source={{ uri: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/aPyjIxfH0Q/6hdxsn18_expires_30_days.png" }}
+						resizeMode={"stretch"}
+						style={{
+							width: 24,
+							height: 24,
+							position: 'absolute',
+							right: 15,
+							top: '50%',
+							transform: [{ translateY: -12 }], // Untuk menempatkan gambar di tengah secara vertikal
+						}}
+					/>
 					<TextInput
 						placeholder={"Masukan Username"}
 						value={textInput1}
 						onChangeText={onChangeTextInput1}
-					
 						style={{
 							color: "#534C4C",
 							fontSize: 14,
@@ -95,15 +93,11 @@ export default function Login() {
 							borderRadius: 50,
 							borderWidth: 2,
 							paddingVertical: 9,
-							paddingLeft: 15,
+							paddingLeft: 30, // Tambahkan padding kiri agar teks tidak menimpa gambar
 							paddingRight: 30,
-							alignItems: "flex-end",
-							marginBottom: 12,
-
-							
 						}}
-					/>
-					
+						/>
+					</View>
 					<Text 					
 						style={{
 							color: "#000000",
@@ -113,41 +107,66 @@ export default function Login() {
 						}}>
 						{"Password:"}
 					</Text>
-					
-					<View 
+					<View style={{ position: 'relative', marginBottom: 12 }}>
+					<Image
+						source={{ uri: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/aPyjIxfH0Q/6hdxsn18_expires_30_days.png" }}
+						resizeMode={"stretch"}
 						style={{
-							alignItems: "flex-end",
+							width: 24,
+							height: 24,
+							position: 'absolute',
+							right: 15,
+							top: '50%',
+							transform: [{ translateY: -12 }], // Untuk menempatkan gambar di tengah secara vertikal
+						}}
+					/>
+					<TextInput
+						placeholder={"*********"}
+						value={textInput2}
+						onChangeText={onChangeTextInput2}
+						style={{
+							color: "#534C4C",
+							fontSize: 14,
+							fontWeight: "bold",
 							borderColor: "#000000",
 							borderRadius: 50,
 							borderWidth: 2,
-							paddingVertical: 4,
-							marginBottom: 44,
-						}}>
-						<Image
-							source = {{uri: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/aPyjIxfH0Q/6hdxsn18_expires_30_days.png"}} 
-							resizeMode = {"stretch"}
-							style={{
-								width: 24,
-								height: 24,
-								marginRight: 13,
-							}}
+							paddingVertical: 9,
+							paddingLeft: 30, // Tambahkan padding kiri agar teks tidak menimpa gambar
+							paddingRight: 30,
+						}}
 						/>
 					</View>
+					
 					<LinearGradient 
-						start={{x:0, y:0}}
-						end={{x:0, y:1}}
+						start={{ x: 0, y: 0 }}
+						end={{ x: 0, y: 1 }}
 						colors={["#255F38", "#1F7D53"]}
 						style={{
-							height: 32,
+							height: 40,
 							borderRadius: 15,
 							marginBottom: 54,
-						}}>
+							marginTop: 30,
+							justifyContent: "center", // Untuk menempatkan teks di tengah secara vertikal
+							alignItems: "center", // Untuk menempatkan teks di tengah secara horizontal
+						}}
+					>
+						<Text 
+							style={{
+								color: "#FFFFFF",
+								fontSize: 16,
+								fontWeight: "bold",
+							}}
+						>
+							{"Login"}
+						</Text>
 					</LinearGradient>
 					<Text 
 						style={{
 							color: "#000000",
 							fontSize: 16,
-							marginLeft: 66,
+							marginLeft: 50,
+							teksalign: "center",
 						}}>
 						{"Dont  have and account? Register"}
 					</Text>
