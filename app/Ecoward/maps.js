@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { SafeAreaView, View, ScrollView, Image, Text, ImageBackground, TextInput, } from "react-native";
-import LinearGradient from 'react-native-linear-gradient'; // Install LinearGradient: https://github.com/react-native-linear-gradient/react-native-linear-gradient
-export default (props) => {
+import { LinearGradient } from 'expo-linear-gradient';
+export default function Maps() {
 	const [textInput1, onChangeTextInput1] = useState('');
 	const [textInput2, onChangeTextInput2] = useState('');
 	return (

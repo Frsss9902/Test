@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { SafeAreaView, View, ScrollView, Text, Image, TextInput, TouchableOpacity, } from "react-native";
-import LinearGradient from 'react-native-linear-gradient'; // Install LinearGradient: https://github.com/react-native-linear-gradient/react-native-linear-gradient
-export default (props) => {
+import { LinearGradient } from 'expo-linear-gradient';
+export default function Edit() {
 	const [textInput1, onChangeTextInput1] = useState('');
 	const [textInput2, onChangeTextInput2] = useState('');
 	const [textInput3, onChangeTextInput3] = useState('');
@@ -16,13 +16,14 @@ export default (props) => {
 					flex: 1,
 					backgroundColor: "#D9DFC6",
 				}}>
-				<Text 
+				<Text
 					style={{
 						color: "#000000",
 						fontSize: 20,
 						fontWeight: "bold",
 						marginTop: 75,
 						marginBottom: 26,
+						textAlign: "center",
 					}}>
 					{"Edit Profile"}
 				</Text>
@@ -30,6 +31,7 @@ export default (props) => {
 					source = {{uri: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/aPyjIxfH0Q/x0opu6j9_expires_30_days.png"}} 
 					resizeMode = {"stretch"}
 					style={{
+						alignSelf: "center",
 						width: 171,
 						height: 175,
 						marginBottom: 27,
@@ -137,13 +139,16 @@ export default (props) => {
 						end={{x:0, y:1}}
 						colors={["#255F38", "#1F7D53"]}
 						style={{
+							alignSelf: "center",
+							width: 250,
 							borderRadius: 20,
 							paddingVertical: 14,
-							paddingHorizontal: 44,
+							paddingHorizontal: 46,
 							marginBottom: 57,
 						}}>
 						<Text 
 							style={{
+								textAlign: "center",
 								color: "#FFFFFF",
 								fontSize: 20,
 								fontWeight: "bold",

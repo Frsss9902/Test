@@ -1,7 +1,9 @@
-import React from "react";
-import { SafeAreaView, View, ScrollView, Image, Text, } from "react-native";
-import LinearGradient from 'react-native-linear-gradient'; // Install LinearGradient: https://github.com/react-native-linear-gradient/react-native-linear-gradient
-export default (props) => {
+import React, {useState} from "react";
+import { SafeAreaView, View, ScrollView, Image, Text, TextInput, } from "react-native";
+import { LinearGradient } from 'expo-linear-gradient';
+export default function Login() {
+	const [textInput1, onChangeTextInput1] = useState('');
+	const [textInput2, onChangeTextInput2] = useState('');
 	return (
 		<SafeAreaView 
 			style={{
@@ -49,6 +51,7 @@ export default (props) => {
 							marginBottom: 14,
 						}}>
 						<Text 
+							
 							style={{
 								color: "#000000",
 								fontSize: 13,
@@ -71,7 +74,7 @@ export default (props) => {
 							{"Login"}
 						</Text>
 					</View>
-					<Text 
+					<Text
 						style={{
 							color: "#000000",
 							fontSize: 16,
@@ -79,26 +82,29 @@ export default (props) => {
 						}}>
 						{"Username:"}
 					</Text>
-					<View 
+					<TextInput
+						placeholder={"Masukan Username"}
+						value={textInput1}
+						onChangeText={onChangeTextInput1}
+					
 						style={{
-							alignItems: "flex-end",
+							color: "#534C4C",
+							fontSize: 14,
+							fontWeight: "bold",
 							borderColor: "#000000",
 							borderRadius: 50,
 							borderWidth: 2,
-							paddingVertical: 6,
+							paddingVertical: 9,
+							paddingLeft: 15,
+							paddingRight: 30,
+							alignItems: "flex-end",
 							marginBottom: 12,
-						}}>
-						<Image
-							source = {{uri: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/aPyjIxfH0Q/d4f1m2lf_expires_30_days.png"}} 
-							resizeMode = {"stretch"}
-							style={{
-								width: 24,
-								height: 24,
-								marginRight: 13,
-							}}
-						/>
-					</View>
-					<Text 
+
+							
+						}}
+					/>
+					
+					<Text 					
 						style={{
 							color: "#000000",
 							fontSize: 16,
@@ -107,6 +113,7 @@ export default (props) => {
 						}}>
 						{"Password:"}
 					</Text>
+					
 					<View 
 						style={{
 							alignItems: "flex-end",
