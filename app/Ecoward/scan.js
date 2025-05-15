@@ -1,6 +1,7 @@
 import React from "react";
 import { SafeAreaView, View, ScrollView, Image, Text, } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
+import CustomHeader from "@/components/topbar";
 export default function Scan() {
 	return (
 		<SafeAreaView 
@@ -8,37 +9,15 @@ export default function Scan() {
 				flex: 1,
 				backgroundColor: "#FFFFFF",
 			}}>
+				<CustomHeader 
+				title=""/>
 			<ScrollView  
 				style={{
 					flex: 1,
 					backgroundColor: "#D9DFC6",
+					paddingTop: 20,
 				}}>
-				<View 
-					style={{
-						flexDirection: "row",
-						marginTop: 19,
-						marginBottom: 64,
-						marginLeft: 34,
-					}}>
-					<Image
-						source = {{uri: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/aPyjIxfH0Q/boewsk0z_expires_30_days.png"}} 
-						resizeMode = {"stretch"}
-						style={{
-							width: 48,
-							height: 48,
-							marginRight: 205,
-						}}
-					/>
-					<Image
-						source = {{uri: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/aPyjIxfH0Q/76inqgza_expires_30_days.png"}} 
-						resizeMode = {"stretch"}
-						style={{
-							width: 48,
-							height: 48,
-							marginVertical: 4,
-						}}
-					/>
-				</View>
+				
 				<View 
 					style={{
 						alignItems: "center",
@@ -97,13 +76,7 @@ export default function Scan() {
 						</Text>
 					</LinearGradient>
 				</View>
-				<Image
-					source = {{uri: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/aPyjIxfH0Q/7ayd9njx_expires_30_days.png"}} 
-					resizeMode = {"stretch"}
-					style={{
-						height: 82,
-					}}
-				/>
+		
 			</ScrollView>
 		</SafeAreaView>
 	)

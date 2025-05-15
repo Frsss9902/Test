@@ -6,13 +6,13 @@ import Maps from "../Ecoward/maps"; // pastikan huruf besar-kecil sesuai dengan 
 import Redeem from "../Ecoward/redeem"; // pastikan huruf besar-kecil sesuai dengan nama file
 import Profile from "../Ecoward/profile"; // pastikan huruf besar-kecil sesuai dengan nama file
 import Login from "../Ecoward/Login"; // pastikan huruf besar-kecil sesuai dengan nama file
-import { IconSymbol } from "@/components/ui/IconSymbol"; // pastikan huruf besar-kecil sesuai dengan nama file
-import App from '../navigation/buttom_tabs'; // pastikan huruf besar-kecil sesuai dengan nama file
+
 import Scan from "../Ecoward/scan"
 import Edit from "../Ecoward/edit_profile"; // pastikan huruf besar-kecil sesuai dengan nama file
+import Register from "../Ecoward/register"; // pastikan huruf besar-kecil sesuai dengan nama file
 
 
 export default function Index() {
-  return <Login/>
+  return <Scan/>
   ;
 }

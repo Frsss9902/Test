@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { SafeAreaView, View, ScrollView, Image, Text, TextInput, } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
-export default function Login() {
+export default function Register() {
 	const [textInput1, onChangeTextInput1] = useState('');
 	const [textInput2, onChangeTextInput2] = useState('');
 	return (
@@ -58,6 +58,44 @@ export default function Login() {
 							}}>
 							{"Join Ecowards and start earning points"}
 						</Text>
+					</View>
+                    	<Text
+						style={{
+							color: "#000000",
+							fontSize: 16,
+							marginBottom: 11,
+						}}>
+						{"Nama:"}
+					</Text>
+					<View style={{ position: 'relative', marginBottom: 12 }}>
+					<Image
+						source={{ uri: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/aPyjIxfH0Q/6hdxsn18_expires_30_days.png" }}
+						resizeMode={"stretch"}
+						style={{
+							width: 24,
+							height: 24,
+							position: 'absolute',
+							right: 15,
+							top: '50%',
+							transform: [{ translateY: -12 }], // Untuk menempatkan gambar di tengah secara vertikal
+						}}
+					/>
+					<TextInput
+						placeholder={"Masukan Nama"}
+						value={textInput1}
+						onChangeText={onChangeTextInput1}
+						style={{
+							color: "#534C4C",
+							fontSize: 14,
+							fontWeight: "bold",
+							borderColor: "#000000",
+							borderRadius: 50,
+							borderWidth: 2,
+							paddingVertical: 9,
+							paddingLeft: 30, // Tambahkan padding kiri agar teks tidak menimpa gambar
+							paddingRight: 30,
+						}}
+						/>
 					</View>
 					
 					<Text
@@ -158,17 +196,17 @@ export default function Login() {
 								fontWeight: "bold",
 							}}
 						>
-							{"Login"}
+							{"Register"}
 						</Text>
 					</LinearGradient>
 					<Text 
 						style={{
 							color: "#000000",
 							fontSize: 16,
-							marginLeft: 50,
+							marginLeft: 70,
 							teksalign: "center",
 						}}>
-						{"Dont  have and account? Register"}
+						{"already have a account? Login"}
 					</Text>
 				</View>
 			</ScrollView>

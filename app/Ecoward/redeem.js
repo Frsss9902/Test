@@ -8,6 +8,7 @@ import {
   TouchableOpacity
 } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
+import CustomHeader from "@/components/topbar";
 
 export default function Redeem() {
   const redeemItems = [
@@ -40,35 +41,9 @@ export default function Redeem() {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
-      <ScrollView style={{ flex: 1, backgroundColor: "#D9DFC6" }}>
-        {/* Header */}
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "center",
-            backgroundColor: "#8EB486",
-            padding: 18,
-            marginBottom: 33,
-          }}>
-          <Image
-            source={{
-              uri: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/aPyjIxfH0Q/gcmz0g7l_expires_30_days.png",
-            }}
-            resizeMode={"stretch"}
-            style={{ width: 48, height: 48 }}
-          />
-          <Text style={{ color: "#000000", fontSize: 16, fontWeight: "bold" }}>
-            {"Penukaran Point"}
-          </Text>
-          <Image
-            source={{
-              uri: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/aPyjIxfH0Q/ab7zpcpl_expires_30_days.png",
-            }}
-            resizeMode={"stretch"}
-            style={{ width: 48, height: 48 }}
-          />
-        </View>
+      <CustomHeader title="Penukaran Point" />
+      <ScrollView style={{ flex: 1, backgroundColor: "#D9DFC6" , paddingTop:20}}>
+       
 
         {/* Redeem Items */}
         {redeemItems.map((item) => (
@@ -122,14 +97,7 @@ export default function Redeem() {
           </LinearGradient>
         ))}
 
-        {/* Footer image */}
-        <Image
-          source={{
-            uri: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/aPyjIxfH0Q/sxv109eo_expires_30_days.png",
-          }}
-          resizeMode={"stretch"}
-          style={{ height: 81, marginHorizontal: 1 }}
-        />
+       
       </ScrollView>
     </SafeAreaView>
   );

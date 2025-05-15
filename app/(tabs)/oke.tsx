@@ -13,6 +13,6 @@ import Edit from "../Ecoward/edit_profile"; // pastikan huruf besar-kecil sesuai
 
 
 export default function Index() {
-  return <Maps/>
+  return <Profile/>
   ;
 }

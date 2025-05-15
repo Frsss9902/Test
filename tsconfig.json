@@ -6,7 +6,8 @@
       "@/*": [
         "./*"
       ]
-    }
+    },
+    "skipLibCheck": true // Tambahkan ini untuk menghindari pemeriksaan tipe library
   },
   "include": [
     "**/*.ts",

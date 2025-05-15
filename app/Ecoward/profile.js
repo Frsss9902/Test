@@ -65,7 +65,7 @@ export default function Profile() {
 							colors={["#255F38", "#1F7D53"]}
 							style={{
 								borderRadius: 20,
-								paddingVertical: 13,
+								paddingVertical: 10,
 								paddingHorizontal: 46,
 							}}>
 							<Text 
@@ -73,8 +73,9 @@ export default function Profile() {
 									color: "#FFFFFF",
 									fontSize: 16,
 									fontWeight: "bold",
+									
 								}}>
-								{"Edit Profile\n"}
+								{"Edit Profile"}
 							</Text>
 						</LinearGradient>
 					</TouchableOpacity>
@@ -236,13 +237,7 @@ export default function Profile() {
 						</Text>
 					</View>
 				</View>
-				<Image
-					source = {{uri: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/aPyjIxfH0Q/g4ae0yyn_expires_30_days.png"}} 
-					resizeMode = {"stretch"}
-					style={{
-						height: 79,
-					}}
-				/>
+				
 			</ScrollView>
 		</SafeAreaView>
 	)
