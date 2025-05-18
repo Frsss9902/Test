@@ -8,21 +8,29 @@
     "scheme": "mynewproject",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Aplikasi ini membutuhkan akses ke kamera untuk memindai QR code"
+      }
     },
+
     "android": {
+      "permissions": ["CAMERA"],
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true
     },
+
     "web": {
       "bundler": "metro",
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
+
     "plugins": [
       "expo-router",
       [
@@ -34,9 +42,9 @@
           "backgroundColor": "#ffffff"
         }
       ],
-      "react-native-video",
-      "expo-barcode-scanner"
+      "react-native-video"
     ],
+
     "experiments": {
       "typedRoutes": true
     }

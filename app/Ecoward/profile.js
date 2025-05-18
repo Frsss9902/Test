@@ -1,9 +1,13 @@
 import React from "react";
 import { SafeAreaView, View, ScrollView, Text, Image, TouchableOpacity, } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
+import { Stack,useRouter } from "expo-router";
+import { router } from "expo-router";
 
 export default function Profile() {
+	const router = useRouter();
 	return (
+		
 		<SafeAreaView 
 			style={{
 				flex: 1,
@@ -58,7 +62,7 @@ export default function Profile() {
 						alignItems: "center",
 						marginBottom: 32,
 					}}>
-					<TouchableOpacity onPress={()=>alert('Pressed!')}>
+					<TouchableOpacity onPress={()=>router.push('/Ecoward/edit_profile')}>
 						<LinearGradient 
 							start={{x:0, y:0}}
 							end={{x:0, y:1}}
@@ -242,3 +246,4 @@ export default function Profile() {
 		</SafeAreaView>
 	)
 }
+

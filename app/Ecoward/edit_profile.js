@@ -1,12 +1,19 @@
+
 import React, {useState} from "react";
 import { SafeAreaView, View, ScrollView, Text, Image, TextInput, TouchableOpacity, } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
+import { useRouter } from "expo-router";
+import { Link } from "expo-router";
+
 export default function Edit() {
 	const [textInput1, onChangeTextInput1] = useState('');
 	const [textInput2, onChangeTextInput2] = useState('');
 	const [textInput3, onChangeTextInput3] = useState('');
-	return (
-		<SafeAreaView 
+	const router = useRouter();
+		return (
+	
+			
+			<SafeAreaView 
 			style={{
 				flex: 1,
 				backgroundColor: "#FFFFFF",
@@ -133,7 +140,7 @@ export default function Edit() {
 						}}
 					/>
 				</View>
-				<TouchableOpacity onPress={()=>alert('Pressed!')}>
+				<TouchableOpacity onPress={()=>router.back('/Ecoward/profile')}>
 					<LinearGradient 
 						start={{x:0, y:0}}
 						end={{x:0, y:1}}
@@ -157,15 +164,11 @@ export default function Edit() {
 						</Text>
 					</LinearGradient>
 				</TouchableOpacity>
-				<Image
-					source = {{uri: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/aPyjIxfH0Q/ez648ngx_expires_30_days.png"}} 
-					resizeMode = {"stretch"}
-					style={{
-						height: 79,
-						alignSelf: "stretch",
-					}}
-				/>
+				
 			</ScrollView>
+			
 		</SafeAreaView>
+		
 	)
+	
 }

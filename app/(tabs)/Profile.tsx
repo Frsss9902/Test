@@ -9,10 +9,12 @@ import Login from "../Ecoward/Login"; // pastikan huruf besar-kecil sesuai denga
 import { IconSymbol } from "@/components/ui/IconSymbol"; // pastikan huruf besar-kecil sesuai dengan nama file
 import App from '../navigation/buttom_tabs'; // pastikan huruf besar-kecil sesuai dengan nama file
 import Scan from "../Ecoward/scan"
-import Edit from "../Ecoward/edit_profile"; // pastikan huruf besar-kecil sesuai dengan nama file
+import Edit from "../Ecoward/edit_profile"; 
+
 
 
 export default function Index() {
   return <Profile/>
   ;
+
 }

@@ -13,6 +13,6 @@ import Register from "../Ecoward/register"; // pastikan huruf besar-kecil sesuai
 
 
 export default function Index() {
-  return <Scan/>
+  return <Dashboard/>
   ;
 }

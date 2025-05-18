@@ -1,83 +1,137 @@
-import React from "react";
-import { SafeAreaView, View, ScrollView, Image, Text, } from "react-native";
-import { LinearGradient } from 'expo-linear-gradient';
+import React, { useState } from "react";
+import { SafeAreaView, View, Text, TouchableOpacity, Alert, StyleSheet } from "react-native";
+import { CameraView, useCameraPermissions } from "expo-camera";
 import CustomHeader from "@/components/topbar";
+
 export default function Scan() {
-	return (
-		<SafeAreaView 
-			style={{
-				flex: 1,
-				backgroundColor: "#FFFFFF",
-			}}>
-				<CustomHeader 
-				title=""/>
-			<ScrollView  
-				style={{
-					flex: 1,
-					backgroundColor: "#D9DFC6",
-					paddingTop: 20,
-				}}>
-				
-				<View 
-					style={{
-						alignItems: "center",
-						marginBottom: 56,
-					}}>
-					<Text 
-						style={{
-							color: "#121212",
-							fontSize: 30,
-							fontWeight: "bold",
-						}}>
-						{"Scan QR Code"}
-					</Text>
-				</View>
-				<Image
-					source = {{uri: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/aPyjIxfH0Q/hskn4ytv_expires_30_days.png"}} 
-					resizeMode = {"stretch"}
-					style={{
-						height: 372,
-						marginBottom: 34,
-						marginHorizontal: 22,
-					}}
-				/>
-				<View 
-					style={{
-						alignItems: "center",
-						marginBottom: 55,
-					}}>
-					<LinearGradient 
-						start={{x:0, y:0}}
-						end={{x:0, y:1}}
-						colors={["#255F38", "#1F7D53"]}
-						style={{
-							flexDirection: "row",
-							alignItems: "center",
-							borderRadius: 20,
-							paddingVertical: 19,
-							paddingLeft: 40,
-							paddingRight: 43,
-						}}>
-						<Image
-							source = {{uri: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/aPyjIxfH0Q/mpq4l4fg_expires_30_days.png"}} 
-							resizeMode = {"stretch"}
-							style={{
-								width: 35,
-								height: 33,
-								marginRight: 5,
-							}}
-						/>
-						<Text 
-							style={{
-								color: "#FDF7F7",
-								fontSize: 26,
-							}}>
-							{"Scan QR Code"}
-						</Text>
-					</LinearGradient>
-				</View>
-		
-			</ScrollView>
-		</SafeAreaView>
-	)
+  const [facing, setFacing] = useState("back");
+  const [permission, requestPermission] = useCameraPermissions();
+  const [scanned, setScanned] = useState(false);
+
+  if (!permission) return <View />;
+  
+  if (!permission.granted) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <CustomHeader title=" " />
+        <View style={styles.permissionContainer}>
+          <Text style={styles.permissionText}>We need your permission to access the camera</Text>
+          <TouchableOpacity style={styles.permissionButton} onPress={requestPermission}>
+            <Text style={styles.permissionButtonText}>Grant Permission</Text>
+          </TouchableOpacity>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  const handleScan = ({ data, type }) => {
+    if (!scanned) {
+      setScanned(true);
+      Alert.alert("Scanned Data", `${data}`);
+      setTimeout(() => setScanned(false), 3000);
+    }
+  };
+
+  const toggleCameraFacing = () => {
+    setFacing((prev) => (prev === "back" ? "front" : "back"));
+  };
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <CustomHeader title=" " />
+      <View style={styles.headerTextContainer}>
+        <Text style={styles.headerText}>Scan QR Code</Text>
+      </View>
+
+      <CameraView
+        style={styles.camera}
+        facing={facing}
+        barcodeScannerSettings={{
+          barcodeTypes: ["qr", "ean13", "ean8", "upc_a", "upc_e", "code39", "code128"],
+        }}
+        onBarcodeScanned={handleScan}
+      >
+        <View style={styles.overlay}>
+          <View style={styles.scanArea} />
+        </View>
+
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.flipButton} onPress={toggleCameraFacing}>
+            <Text style={styles.flipButtonText}>Flip Camera</Text>
+          </TouchableOpacity>
+        </View>
+      </CameraView>
+    </SafeAreaView>
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#D9DFC6",
+  },
+  headerTextContainer: {
+    alignItems: "center",
+    marginVertical: 20,
+  },
+  headerText: {
+    color: "#121212",
+    fontSize: 30,
+    fontWeight: "bold",
+  },
+  camera: {
+    flex: 1,
+    borderRadius: 20,
+    overflow: "hidden",
+    marginHorizontal: 20,
+    marginBottom: 20,
+  },
+  overlay: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  scanArea: {
+    width: 250,
+    height: 250,
+    borderWidth: 2,
+    borderColor: "white",
+    borderRadius: 10,
+  },
+  buttonContainer: {
+    position: "absolute",
+    bottom: 30,
+    alignSelf: "center",
+  },
+  flipButton: {
+    backgroundColor: "#255F38",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+  },
+  flipButtonText: {
+    color: "white",
+    fontSize: 16,
+  },
+  permissionContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 20,
+  },
+  permissionText: {
+    textAlign: "center",
+    fontSize: 18,
+    marginBottom: 20,
+  },
+  permissionButton: {
+    backgroundColor: "#1F7D53",
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 8,
+  },
+  permissionButtonText: {
+    color: "white",
+    fontSize: 16,
+  },
+});
